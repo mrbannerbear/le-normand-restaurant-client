@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-olive-500{
+    @apply text-[#92836C]
+}
+
+.text-olive-600{
+    @apply text-[#607244]
+}
+
+.bg-olive-500{
+    @apply bg-[#92836C]
+}
+
+.bg-olive-600{
+    @apply bg-[#607244]
+}
+
+.bg-olive-50{
+    @apply bg-[#e2edd1]
+}
+
+.smooth-underline {
+    position: relative;
+    text-decoration: none;
+    color: #607244; /* Adjust the color as needed */
+  }
+  
+  .smooth-underline::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px; /* Adjust the thickness as needed */
+    bottom: 0;
+    left: 0;
+    background-color: #607244; /* Adjust the color as needed */
+    transition: width 0.5s; /* Adjust the duration as needed */
+  }
+  
+  .smooth-underline:hover::before {
+    width: 100%;
+  }
+
+  .smooth-bg {
+    position: relative;
+    overflow: hidden;
+    color: #000; /* Adjust the text color as needed */
+  }
+  
+  .smooth-bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: #607244; /* Adjust the target background color as needed */
+    transition: left 0.5s; /* Adjust the duration as needed */
+  }
+  
+  .smooth-bg:hover::before {
+    left: 0;
+  }
+
+  .smooth-color{
+    color: #607244;
+    transition-property: color;
+    transition-duration: 0.5s;
+  }
+
+  .smooth-color:hover{
+    color:white
+  }
+  
+  
+  
