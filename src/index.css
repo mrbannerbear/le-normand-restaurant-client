@@ -19,7 +19,7 @@
 }
 
 .bg-olive-50{
-    @apply bg-[#e2edd1]
+    @apply bg-[#ebf1e0]
 }
 
 .smooth-underline {
@@ -46,7 +46,7 @@
   .smooth-bg {
     position: relative;
     overflow: hidden;
-    color: #000; /* Adjust the text color as needed */
+    color: #000; /* Adjust the initial text color as needed */
   }
   
   .smooth-bg::before {
@@ -56,13 +56,19 @@
     height: 100%;
     top: 0;
     left: -100%;
-    background-color: #607244; /* Adjust the target background color as needed */
-    transition: left 0.5s; /* Adjust the duration as needed */
+    background: #607244;
+    transition: left 0.5s/* Adjust the duration as needed */
+    
   }
   
   .smooth-bg:hover::before {
     left: 0;
   }
+
+  .title-size{
+    @apply text-2xl md:text-3xl lg:text-5xl
+  }
+  
 
   .smooth-color{
     color: #607244;

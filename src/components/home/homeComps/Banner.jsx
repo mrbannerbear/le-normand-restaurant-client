@@ -16,7 +16,7 @@ const Banner = ({click}) => {
       <div className="hero-content text-center text-white lg:text-lg">
         <div className="max-w-md">
             <h3>We welcome you at</h3>
-          <h1 className="mb-5 text-2xl md:text-3xl lg:text-5xl font-bold">Restaurant Le Normand</h1>
+          <h1 className="mb-5 title-size font-bold">Restaurant Le Normand</h1>
             <p className="mb-5">
                 Where you embark on an exquisite culinary adventure, feast on art. It is much more than
                 what your appetite will experience. It is textbook fine dining at its finest.

@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="flex-1">
         <img
           src="https://i.ibb.co/nMvsmNT/Tree-cropped.png"
-          className="w-56 lg:w-64 p-4 lg:px-12"
+          className="w-36 lg:w-64 p-4 lg:px-12"
           alt=""
         />
       </div>
@@ -40,7 +40,8 @@ const Navbar = () => {
               <li className="mr-4 smooth-underline">{each.name}</li>
             </NavLink>
           ))}
-          <NavLink><li className="border-[1.5px] border-[#607244] p-2 smooth-bg smooth-color">Book a Reservation</li></NavLink>
+          <NavLink><li className="border-[1.5px] hover:text-white
+           border-[#607244] p-2 smooth-bg smooth-color">Book a Reservation</li></NavLink>
         </ul>
       </div>
     </div>
