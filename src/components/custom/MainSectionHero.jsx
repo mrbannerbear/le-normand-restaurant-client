@@ -7,7 +7,7 @@ const MainSectionHero = ({ data }) => {
     <div className="hero min-h-[50vh]">
 
       <div
-        className={`hero-content flex gap-10`}
+        className={`hero-content flex lg:gap-10`}
         style={direction === "row-reverse" ? {
         flexDirection: "row-reverse"
         } : { flexDirection: "row" }}
@@ -16,12 +16,12 @@ const MainSectionHero = ({ data }) => {
           <img src={img} className="max-w-[12rem] object-contain md:max-w-md lg:max-w-lg shadow-2xl" />
         </NavLink>
         <div>
-            <p className="relative ml-3 mb-3 text-xl font-semibold">{p1}</p>
-          <h1 className="title-size font-semibold italic">{title}</h1>
-          <p className="py-6">{p2}</p>
+            <p className="relative ml-3 lg:mb-3 text-sm lg:text-xl font-semibold">{p1}</p>
+          <h1 className="title-size mb-2 lg:mb-0 font-semibold italic">{title}</h1>
+          <p className="lg:py-6 text-[0.6rem] md:text-sm lg:text-base">{p2}</p>
         </div>
       </div>
-      
+
 
     </div>
   );

@@ -25,23 +25,37 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 h-20">
       <div className="flex-1">
+        <NavLink to="/">
         <img
           src="https://i.ibb.co/nMvsmNT/Tree-cropped.png"
           className="w-36 lg:w-64 p-4 lg:px-12"
           alt=""
         />
+        </NavLink>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1 hidden md:flex mr-4 items-center">
+        <ul className="menu menu-horizontal px-1 hidden md:flex mr-8 items-center gap-4">
           {NavComps.map((each) => (
-            <NavLink key={each.id} to={each.path}>
-              <li className="mr-4 smooth-underline">{each.name}</li>
+            <NavLink
+              className={({ isPending, isActive }) =>
+                isPending ? "" : isActive ? "border-b-[1px] border-[#607244]" : "smooth-underline"
+              }
+              key={each.id}
+              to={each.path}
+            >
+              <li className="">{each.name}</li>
             </NavLink>
           ))}
-          <NavLink><li className="border-[1.5px] hover:text-white
-           border-[#607244] p-2 smooth-bg smooth-color">Book a Reservation</li></NavLink>
+          <NavLink>
+            <li
+              className="border-[1.5px] hover:text-white
+           border-[#607244] p-2 smooth-bg smooth-color"
+            >
+              Book a Reservation
+            </li>
+          </NavLink>
         </ul>
       </div>
     </div>

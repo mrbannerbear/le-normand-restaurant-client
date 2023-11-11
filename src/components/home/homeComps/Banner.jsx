@@ -17,7 +17,7 @@ const Banner = ({click}) => {
         <div className="max-w-md">
             <h3>We welcome you at</h3>
           <h1 className="mb-5 title-size font-bold">Restaurant Le Normand</h1>
-            <p className="mb-5">
+            <p className="mb-5 text-[0.65rem] md:text-base">
                 Where you embark on an exquisite culinary adventure, feast on art. It is much more than
                 what your appetite will experience. It is textbook fine dining at its finest.
             </p>

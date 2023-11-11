@@ -18,6 +18,10 @@
     @apply bg-[#607244]
 }
 
+.bg-olive-700{
+    @apply bg-[#526733]
+}
+
 .bg-olive-50{
     @apply bg-[#ebf1e0]
 }

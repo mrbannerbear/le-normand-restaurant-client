@@ -11,7 +11,7 @@ const Home = () => {
       }
 
     return (
-        <div>
+        <div className="bg-olive-50">
             <Banner click={handleScrollDown}></Banner>
             <div className="min-h-screen" ref={testRef}>
                 <MainSection></MainSection>
