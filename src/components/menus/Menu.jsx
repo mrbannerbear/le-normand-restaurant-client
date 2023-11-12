@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import MenuBanner from "./menuComps/menuBanner";
-import ALaCarte from "./ALaCarte";
+import ALaCarte from "./menuComps/ALaCarte";
 import { IoMdArrowUp } from "react-icons/io";
 import TastingMenu from "./menuComps/TastingMenu";
+import { Helmet } from "react-helmet-async";
 
 const Menu = () => {
-  useEffect(() => {
-    fetch("/assets/menu.json")
-      .then((res) => res.json())
-      .then((data) => setCarte(data))
-      .catch((err) => console.log(err));
-  }, []);
-
-  const [carte, setCarte] = useState([]);
 
   const handleOpen1 = () => {
     setOpen1(!open1);
@@ -27,11 +20,16 @@ const Menu = () => {
 
   return (
     <div className="bg-olive-50 min-h-screen">
+
+    <Helmet>
+        <title>Menu | Restaurant Le Normand</title>
+    </Helmet>
+
       <MenuBanner></MenuBanner>
 
       <div className="flex items-center flex-col py-12 lg:py-24">
 
-        <div className="text-center" style={open1 ? {marginBottom: "12px"} : {marginBottom: "24px"}}>
+        <div className="text-center" style={open1 ? {marginBottom: "24px"} : {marginBottom: "2px"}}>
           <h2 className="mb-3 text-xl">
           <button onClick={handleOpen1} className="smooth-underline">  À La Carte </button>
           </h2>
@@ -39,15 +37,12 @@ const Menu = () => {
           { open1 &&
             <div>
               <ALaCarte
-                data={carte}
                 details={{ category: "Appetizer" }}
               ></ALaCarte>
               <ALaCarte
-                data={carte}
                 details={{ category: "Entrée" }}
               ></ALaCarte>
               <ALaCarte
-                data={carte}
                 details={{ category: "Dessert" }}
               ></ALaCarte>
               <button onClick={() => setOpen1(false)}><IoMdArrowUp></IoMdArrowUp></button>
@@ -55,7 +50,7 @@ const Menu = () => {
           }
         </div>
 
-        <div className="text-center my-6">
+        <div className="text-center" style={open2 ? { marginTop: "24px" } : { marginTop: "6px" }}>
           <h2 className="mb-3 text-xl">
           <button onClick={handleOpen2} className="smooth-underline">  Tasting Menu </button>
           </h2>
@@ -63,15 +58,12 @@ const Menu = () => {
           { open2 &&
             <div>
               <TastingMenu
-                data={carte}
                 details={{ category: "Appetizer" }}
               ></TastingMenu>
               <TastingMenu
-                data={carte}
                 details={{ category: "Entrée" }}
               ></TastingMenu>
               <TastingMenu
-                data={carte}
                 details={{ category: "Dessert" }}
               ></TastingMenu>
               <button onClick={() => setOpen2(false)}><IoMdArrowUp></IoMdArrowUp></button>
