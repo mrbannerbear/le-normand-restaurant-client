@@ -10,6 +10,10 @@
     @apply text-[#607244]
 }
 
+.text-olive-50{
+  @apply text-[#ebf1e0]
+}
+
 .bg-olive-500{
     @apply bg-[#92836C]
 }

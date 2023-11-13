@@ -3,13 +3,14 @@ import useMenu from "../../custom/useMenu";
 /* eslint-disable react/prop-types */
 const TastingMenu = (props) => {
 
-    const [ menu ] = useMenu()
+    const [ menu, loading ] = useMenu()
 
   const { category } = props.details;
 
   return (
     <div className="py-3">
       <h2 className="border-b w-max mx-auto border-[#607244]">{category}</h2>
+      {loading && <>...</>}
       {menu.length > 0 &&
         menu
           .filter(

@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="flex-1">
         <NavLink to="/">
         <img
-          src="https://i.ibb.co/nMvsmNT/Tree-cropped.png"
+          src="https://i.imgur.com/cZez2Pm.png"
           className="w-36 lg:w-64 p-4 lg:px-12"
           alt=""
         />

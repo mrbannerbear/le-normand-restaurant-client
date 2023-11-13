@@ -21,8 +21,8 @@ const MenuBanner = () => {
             <h1 className="text-4xl font-semibold mb-4">
                     Culinary Innovation Like No Other
                 </h1>
-                <p>William Le Normand's travels around the globe inspired him to bring 
-                    exotic & prized ingredients to the menus. That along with fresh, 
+                <p>William Le Normand's travels around the globe introduced him to
+                    exotic & prized ingredients that he brought to the table. That along with fresh, 
                     seasonal produce are what make our menus unique. That means you can enjoy truly wonderful dishes, served 
                     at their best time of the year.
                 </p>

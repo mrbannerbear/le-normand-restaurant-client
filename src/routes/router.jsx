@@ -3,6 +3,7 @@ import MainLayout from "../components/mainComps/MainLayout";
 import Error from "../components/mainComps/Error";
 import Home from "../components/home/Home";
 import Menu from "../components/menus/Menu";
+import Contact from "../components/contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -12,7 +13,11 @@ const router = createBrowserRouter([
             {
                 element: <Menu></Menu>,
                 path: "/menus"
-            }
+            },
+            {
+                element: <Contact></Contact>,
+                path: "/contact"
+            },
         ]
     },
     {
