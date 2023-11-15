@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import Banner from "./homeComps/Banner";
 import MainSection from "./homeComps/MainSection";
+import Footer from "../mainComps/Footer";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
             <div className="min-h-screen" ref={testRef}>
                 <MainSection></MainSection>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

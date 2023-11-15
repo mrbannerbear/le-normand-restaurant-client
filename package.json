@@ -14,6 +14,7 @@
     "aos": "^3.0.0-beta.6",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
+    "nodemailer": "^6.9.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^3.1.0",

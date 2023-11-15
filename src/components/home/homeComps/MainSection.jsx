@@ -5,10 +5,10 @@ import MainSectionHero from "../../custom/MainSectionHero";
 
 AOS.init({
   offset: 10, // offset (in px) from the original trigger point
-  delay: 150, // values from 0 to 3000, with step 50ms
+  delay: 50, // values from 0 to 3000, with step 50ms
   duration: 700, // values from 0 to 3000, with step 50ms
   easing: "ease", // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
+  once: true, // whether animation should happen only once - while scrolling down
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom",
 });
@@ -20,7 +20,7 @@ const MainSection = () => {
       img: `https://images.unsplash.com/photo-1616669944447-d65d41a222bd?q=80&w=2054&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
       title: "Haute Cuisine",
       p1: "Explore",
-      p2: `Wonderfully-crafted menus, inspired by French & Italian cuisine
+      p2: `Wonderfully-crafted menus, influenced by French & Italian cuisine
            along with stark elements from the regions of South Asia.`,
       direction: `row-reverse`,
       path: "/menus",
@@ -34,6 +34,15 @@ const MainSection = () => {
       direction: `row`,
       path: "/private-dining",
     },
+    {
+      id: 3,
+      img: "https://images.unsplash.com/photo-1488992783499-418eb1f62d08?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Our Story" ,
+      p1: "Learn About",
+      p2: "& What Inspires Us",
+      direction: "column-reverse",
+      path: "/about"
+    }
   ];
 
   return (

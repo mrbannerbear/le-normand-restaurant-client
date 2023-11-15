@@ -23,14 +23,14 @@ const Menu = () => {
   const [open2, setOpen2] = useState(false);
 
   return (
-    <div className="bg-olive-50 min-h-screen">
+    <div className="bg-olive-50 min-h-screen pb-12">
       <Helmet>
         <title>Menu | Restaurant Le Normand</title>
       </Helmet>
 
       <MenuBanner></MenuBanner>
 
-      <div className="flex items-center flex-col py-12 lg:py-24">
+      <div className="flex items-center flex-col pt-12 pb-6 lg:py-24">
         <div
           className="text-center"
           style={open1 ? { marginBottom: "24px" } : { marginBottom: "2px" }}
@@ -88,20 +88,20 @@ const Menu = () => {
           className="mySwiper w-1/2 h-[450px] mx-auto"
         >
           <SwiperSlide>
-            <img className="h-full"
+            <img className="h-full w-full"
               src="https://images.unsplash.com/photo-1517274885739-760f0910eefc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </SwiperSlide>
 
           <SwiperSlide>
-            <img className="h-full"
+            <img className="h-full w-full"
               src="https://images.unsplash.com/photo-1616669989627-0cea7f32be2c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </SwiperSlide>
           <SwiperSlide>
-            <img className="h-full"
+            <img className="h-full w-full"
               src="https://images.unsplash.com/photo-1532270441355-095a26af8a99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
