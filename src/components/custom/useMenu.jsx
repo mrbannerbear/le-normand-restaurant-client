@@ -10,6 +10,8 @@ import {
 
 const useMenu = () => {
 
+    // desired response by default is known as 'data' in tan stack query. For a different key name, we use data: 'name'.
+    // for default value, we use 'name' = [] or any default value.
     const { isPending, error, data: menu = [] } = useQuery({
         queryKey: ["menus"],
         queryFn: async () => {
@@ -25,16 +27,6 @@ const useMenu = () => {
     else if(error){
         return <>An error occurred.</>
     }
-    // const [ menu, setMenu ] = useState([])
-    // const [ loading, setLoading ] = useState(true)
-
-
-    //     AxiosSecure().get("http://localhost:4500/menus")
-    //     .then(data =>{ 
-    //         setMenu(data.data);
-    //         setLoading(false)})
-    //     .catch(err => console.log(err))
-
 
     return menu
 };

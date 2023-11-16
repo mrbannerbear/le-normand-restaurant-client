@@ -5,8 +5,6 @@ const ContactForm = () => {
     const {
         register,
         handleSubmit,
-        watch,
-        formState: { errors },
       } = useForm()
 
       const handleForm = (d) => {
@@ -18,15 +16,16 @@ const ContactForm = () => {
     <>
     <form onSubmit={handleSubmit(handleForm)}>
       <p className="flex gap-3">
-        <input type="text" { ...register("lastName") } className="text w-1/2" placeholder="Last Name" />
-        <input type="text" { ...register("firstName") } className="text w-1/2" placeholder="First Name" />
+        <input type="text"  required { ...register("lastName") } className="text w-1/2" placeholder="Last Name" />
+        <input type="text"  required { ...register("firstName") } className="text w-1/2" placeholder="First Name" />
       </p>
       <p className="flex gap-3">
-        <input type="email" { ...register("email") } className="w-1/2" placeholder="Email" />
-        <input type="number" { ...register("phone", { valueAsNumber: true }) } className="w-1/2" placeholder="Telephone" />
+        <input type="email" required  { ...register("email") } className="w-1/2" placeholder="Email" />
+        <input type="number required " { ...register("phone", { valueAsNumber: true }) } className="w-1/2" placeholder="Telephone" />
       </p>
       <p className="w-full">
         <textarea { ...register("message") }
+        required
           className="w-full"
           rows="2"
           placeholder="Message"
@@ -34,7 +33,7 @@ const ContactForm = () => {
       </p>
       <p className="flex justify-end">
         <input
-          className="bg-olive-600 text-olive-50"
+          className="bg-olive-600 text-olive-50 active:bg-olive-500"
           type="submit"
           value="Send"
         />

@@ -4,6 +4,7 @@ import Error from "../components/mainComps/Error";
 import Home from "../components/home/Home";
 import Menu from "../components/menus/Menu";
 import Contact from "../components/contact/Contact";
+import SignUp from "../components/auth/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -18,12 +19,16 @@ const router = createBrowserRouter([
                 element: <Contact></Contact>,
                 path: "/contact"
             },
+            {
+                element: <SignUp></SignUp>,
+                path: "/signup"
+            }
         ]
     },
     {
         element: <Home></Home>,
         path: "/"
-    }
+    },
 ])
 
 export default router
