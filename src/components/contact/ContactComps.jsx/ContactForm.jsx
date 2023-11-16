@@ -10,6 +10,7 @@ const ContactForm = () => {
       } = useForm()
 
       const handleForm = (d) => {
+        d.responded = false
         console.log(d)
       }
 

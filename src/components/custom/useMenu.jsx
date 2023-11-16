@@ -1,20 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import AxiosSecure from "./AxiosSecure";
+
+import {
+    useQuery,
+    useMutation,
+    useQueryClient
+} from "@tanstack/react-query"
+
 
 const useMenu = () => {
 
-    const [ menu, setMenu ] = useState([])
-    const [ loading, setLoading ] = useState(true)
+    const { isPending, error, data: menu = [] } = useQuery({
+        queryKey: ["menus"],
+        queryFn: async () => {
+            let response = await AxiosSecure().get("/menus")
+            return response.data
+        }
+    })
 
-    useEffect( () => {
-        fetch("http://localhost:4500/menus")
-        .then(res => res.json())
-        .then(data =>{ 
-            setMenu(data);
-            setLoading(false)})
-        .catch(err => console.log(err))
-    } , [])
+    if(isPending){
+        return <>...</>
+    }
 
-    return [ menu, loading ]
+    else if(error){
+        return <>An error occurred.</>
+    }
+    // const [ menu, setMenu ] = useState([])
+    // const [ loading, setLoading ] = useState(true)
+
+
+    //     AxiosSecure().get("http://localhost:4500/menus")
+    //     .then(data =>{ 
+    //         setMenu(data.data);
+    //         setLoading(false)})
+    //     .catch(err => console.log(err))
+
+
+    return menu
 };
 
 export default useMenu;

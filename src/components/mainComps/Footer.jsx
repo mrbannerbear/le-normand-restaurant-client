@@ -1,16 +1,21 @@
 import { NavLink } from "react-router-dom";
 
 const Footer = () => {
+
+    const date = new Date()
+    const year = date.getFullYear()
+
   return (
-    <footer className="flex flex-row flex-wrap items-center justify-center px-12 bg-olive-50
-     gap-y-6 gap-x-12  py-12 text-center w-full">
+    <footer className="bg-olive-50">
+    <div className="flex flex-row flex-wrap items-center justify-center px-12
+     gap-y-6 gap-x-12  pt-12 mb-4 text-center w-full">
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
         <li>
           <NavLink
             className="block font-sans 
             text-base font-normal smooth-underline"
           >
-            About Us
+            Legal
           </NavLink>
         </li>
         <li>
@@ -18,7 +23,7 @@ const Footer = () => {
             className="block font-sans 
             text-base font-normal smooth-underline"
           >
-            License
+            Careers
           </NavLink>
         </li>
         <li>
@@ -26,11 +31,11 @@ const Footer = () => {
             className="block font-sans 
             text-base font-normal smooth-underline"
           >
-            Contribute
+            Admin
           </NavLink>
         </li>
         <li>
-          <NavLink
+          <NavLink to="/contact"
             className="block font-sans 
             text-base font-normal smooth-underline"
           >
@@ -38,6 +43,10 @@ const Footer = () => {
           </NavLink>
         </li>
       </ul>
+    </div>
+    <div className="w-full flex justify-center text-sm pb-8">
+        <span>{year} {`\u00A9`} Restaurant Le Normand </span>
+    </div>
     </footer>
   );
 };
