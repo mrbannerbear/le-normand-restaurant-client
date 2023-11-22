@@ -30,6 +30,10 @@
     @apply bg-[#ebf1e0]
 }
 
+.bg-olive-50-transparent{
+    @apply bg-[#ebf1e0]/80
+}
+
 .smooth-underline {
     position: relative;
     text-decoration: none;

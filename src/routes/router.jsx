@@ -5,6 +5,13 @@ import Home from "../components/home/Home";
 import Menu from "../components/menus/Menu";
 import Contact from "../components/contact/Contact";
 import SignUp from "../components/auth/SignUp";
+import Admin from "../components/admin/Admin";
+import PrivateRoute from "./PrivateRoute";
+import Login from "../components/auth/Login";
+import AuthorizedUsers from "../components/admin/adminComps/AuthorizedUsers/AuthorizedUsers";
+import Messages from "../components/admin/adminComps/Messages/Messages";
+import EditMenu from "../components/admin/adminComps/EditMenu/EditMenu";
+import Reservation from "../components/reservation/Reservation";
 
 const router = createBrowserRouter([
     {
@@ -20,8 +27,16 @@ const router = createBrowserRouter([
                 path: "/contact"
             },
             {
+                element: <Reservation></Reservation>,
+                path: "/reservation"
+            },
+            {
                 element: <SignUp></SignUp>,
                 path: "/signup"
+            },
+            {
+                element: <Login></Login>,
+                path: "/login"
             }
         ]
     },
@@ -29,6 +44,25 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         path: "/"
     },
+    {
+        element: <PrivateRoute>
+            <Admin></Admin>
+        </PrivateRoute>,
+        children: [
+            {
+                element: <AuthorizedUsers></AuthorizedUsers>,
+                path: "/admin/authorized-users"
+            },
+            {
+                element: <Messages></Messages>,
+                path: "/admin/messages"
+            },
+            {
+                element: <EditMenu></EditMenu>,
+                path: "/admin/edit-menu"
+            },
+        ]
+    }
 ])
 
 export default router

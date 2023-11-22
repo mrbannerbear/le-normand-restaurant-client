@@ -1,4 +1,3 @@
-import "../contact/Contact.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import ContactForm from "./ContactComps.jsx/ContactForm";
 import { Helmet } from "react-helmet-async";
@@ -12,7 +11,7 @@ const Contact = () => {
     </Helmet>
     <div className="bg-olive-50 min-h-screen px-12 py-12 md:px-24">
       <h1 className="text-center title-size mb-12">Contact Us</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="flex flex-col-reverse md:grid md:grid-cols-3">
         <div className="w-full">
           <p>53 Park Lane London W1K 1QA +88 (0) 2457 0956 12</p>
           <p>lenormandreservations@lenormand-ctg.com</p>

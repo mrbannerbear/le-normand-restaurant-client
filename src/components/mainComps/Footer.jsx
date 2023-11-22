@@ -28,7 +28,7 @@ const Footer = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
+          <NavLink to="/admin/authorized-users"
             className="block font-sans 
             text-base font-normal smooth-underline"
           >

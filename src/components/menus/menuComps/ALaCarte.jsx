@@ -3,7 +3,7 @@ import useMenu from "../../custom/useMenu";
 /* eslint-disable react/prop-types */
 const ALaCarte = (props) => {
 
-    const menu = useMenu()
+    const menu = useMenu()[0]
 
     const { category } = props.details
 

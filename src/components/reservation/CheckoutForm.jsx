@@ -1,0 +1,288 @@
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+
+const CheckoutForm = () => {
+
+    const stripe = useStripe()
+    const elements = useElements()
+  
+
+  const handleForm = async(e) => {
+    e.preventDefault()
+    const card = elements.getElement(CardElement)
+
+
+    if (!stripe || !elements) {
+      return console.log("stripe hook or elements hook missing");
+    }
+  
+    if (!card) {
+      return alert("card null");
+    }
+
+     // Use your card Element with other Stripe.js APIs
+     const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card,
+      });
+  
+      if (error) {
+        console.log('[error]', error);
+      } else {
+        console.log('[PaymentMethod]', paymentMethod);
+      }
+  };
+
+  return (
+    <form onSubmit={handleForm} >
+      {/* <div className="max-w-lg mx-auto p-8 bg-olive-50-transparent">
+        <h2>Your Information</h2>
+
+        <div className="flex gap-3">
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="lastName"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Last Name
+            </label>
+          </div>
+
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="firstName"
+              name="firstName"
+              id="firstName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="firstName"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              First Name
+            </label>
+          </div>
+        </div>
+
+        <div className="flex gap-3">
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="email"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Email address
+            </label>
+          </div>
+
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="phone"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Telephone
+            </label>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-lg mx-auto p-8 bg-olive-50-transparent">
+        <h2>Your Information</h2>
+
+        <div className="flex gap-3">
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="lastName"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Last Name
+            </label>
+          </div>
+
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="firstName"
+              name="firstName"
+              id="firstName"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="firstName"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              First Name
+            </label>
+          </div>
+        </div>
+
+        <div className="flex gap-3">
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="email"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Email address
+            </label>
+          </div>
+
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="phone"
+              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Telephone
+            </label>
+          </div>
+        </div>
+      </div> */}
+
+      <div className="w-full max-w-lg mx-auto p-8">
+        <div className="bg-olive-50-transparent shadow-lg p-6 relative">
+          <h2 className="text-lg font-medium mb-6 text-olive-600">
+            Payment Information
+          </h2>
+          <>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="col-span-2 sm:col-span-1">
+                <label
+                  htmlFor="card-number"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Card Number
+                </label>
+                <input
+                  type="text"
+                  name="card-number"
+                  id="card-number"
+                  placeholder="0000 0000 0000 0000"
+                  className="w-full py-3 px-4 border border-gray-400  focus:outline-none"
+                />
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <label
+                  htmlFor="expiration-date"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Expiration Date
+                </label>
+                <input
+                  type="text"
+                  name="expiration-date"
+                  id="expiration-date"
+                  placeholder="MM / YY"
+                  className="w-full py-3 px-4 border border-gray-400  focus:outline-none"
+                />
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <label
+                  htmlFor="cvv"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  CVV
+                </label>
+                <input
+                  type="text"
+                  name="cvv"
+                  id="cvv"
+                  placeholder="000"
+                  className="w-full py-3 px-4 border border-gray-400  focus:outline-none"
+                />
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <label
+                  htmlFor="card-holder"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Card Holder
+                </label>
+                <input
+                  type="text"
+                  name="card-holder"
+                  id="card-holder"
+                  placeholder="Full Name"
+                  className="w-full py-3 px-4 border border-gray-400  focus:outline-none"
+                />
+              </div>
+            </div>
+            <div className="mt-8">
+                <CardElement
+                 options={{
+                    style: {
+                      base: {
+                        
+                        fontSize: '16px',
+                        color: '#424770',
+                        '::placeholder': {
+                          color: '#aab7c4',
+                        },
+                      },
+                      invalid: {
+                        color: '#9e2146',
+                      },
+                    },
+                  }}
+                />
+              <button
+                type="submit"
+                className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none"
+              >
+                Submit
+              </button>
+            </div>
+          </>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export default CheckoutForm;

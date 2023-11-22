@@ -48,7 +48,7 @@ const Navbar = () => {
               <li className="">{each.name}</li>
             </NavLink>
           ))}
-          <NavLink>
+          <NavLink to="/reservation">
             <li
               className="border-[1.5px] hover:text-white
            border-[#607244] p-2 smooth-bg smooth-color"

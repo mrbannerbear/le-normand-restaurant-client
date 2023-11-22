@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import MenuBanner from "./menuComps/menuBanner";
 import ALaCarte from "./menuComps/ALaCarte";
 import { IoMdArrowUp } from "react-icons/io";
