@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
@@ -5,7 +6,9 @@ const ContactForm = () => {
 
   const handleForm = (d) => {
     d.responded = false;
-    console.log(d);
+    axios.post("http://localhost:4500/messages", d)
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err))
   };
 
   return (
