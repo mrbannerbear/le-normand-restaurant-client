@@ -2,7 +2,7 @@ import axios from "axios";
 
 const AxiosPublic = () => {
     const instance = axios.create({
-        baseURL: "http://localhost:4500"
+        baseURL: "  https://server-pearl-iota.vercel.app"
     })
 
     return instance

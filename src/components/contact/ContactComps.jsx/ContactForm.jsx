@@ -6,7 +6,7 @@ const ContactForm = () => {
 
   const handleForm = (d) => {
     d.responded = false;
-    axios.post("http://localhost:4500/messages", d)
+    axios.post("  https://server-pearl-iota.vercel.app/messages", d)
     .then(res => console.log(res.data))
     .catch(err => console.log(err))
   };
@@ -115,6 +115,7 @@ const ContactForm = () => {
             value="Send"
           />
         </p>
+        
       </form>
     </>
   );
