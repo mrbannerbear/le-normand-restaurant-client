@@ -2,7 +2,7 @@
 
 This is a fine dining restaurant website inspired by that of Alain Ducasse at the Dorchester.
 
-## [Link](https://restaurant-le-normand.surge.sh/)
+## [Link](https://le-normand-restaurant.vercel.app/)
 
 
 ## Technologies Used:
