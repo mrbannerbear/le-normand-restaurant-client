@@ -9,10 +9,10 @@ import Admin from "../components/admin/Admin";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../components/auth/Login";
 import AuthorizedUsers from "../components/admin/adminComps/AuthorizedUsers/AuthorizedUsers";
-import Messages from "../components/admin/adminComps/Messages/Messages";
 import EditMenu from "../components/admin/adminComps/EditMenu/EditMenu";
 import Reservation from "../components/reservation/Reservation";
 import PrivateDining from "../components/private-dining/PrivateDining";
+import About from "../components/about/About";
 
 const router = createBrowserRouter(
     [
@@ -23,6 +23,10 @@ const router = createBrowserRouter(
             {
                 element: <Menu></Menu>,
                 path: "/menus"
+            },
+            {
+                element: <About></About>,
+                path: "/about"
             },
             {
                 element: <Contact></Contact>,
@@ -58,10 +62,6 @@ const router = createBrowserRouter(
             {
                 element: <AuthorizedUsers></AuthorizedUsers>,
                 path: "/admin/authorized-users"
-            },
-            {
-                element: <Messages></Messages>,
-                path: "/admin/messages"
             },
             {
                 element: <EditMenu></EditMenu>,

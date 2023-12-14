@@ -14,11 +14,6 @@ const Sidebar = () => {
     },
     {
       id: 2,
-      path: "/admin/messages",
-      name: "Messages",
-    },
-    {
-      id: 3,
       path: "/admin/edit-menu",
       name: "Edit Menu",
     },
