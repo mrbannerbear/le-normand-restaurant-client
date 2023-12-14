@@ -2,6 +2,11 @@
 import { IoIosArrowDown } from "react-icons/io"
 // ..
 
+import AOS from "aos"
+import "aos/dist/aos.css";
+
+AOS.init()
+
 const Banner = ({click}) => {
 
   return (
@@ -14,7 +19,7 @@ const Banner = ({click}) => {
     >
       <div className="h-full w-full bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
       <div className="hero-content text-center text-white lg:text-lg">
-        <div className="max-w-md">
+        <div className="max-w-md" data-aos="fade-in" data-aos-delay="250">
             <h3>We welcome you at</h3>
           <h1 className="mb-5 title-size font-bold">Restaurant Le Normand</h1>
             <p className="mb-5 text-[0.65rem] md:text-base">

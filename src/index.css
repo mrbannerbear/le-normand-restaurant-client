@@ -39,6 +39,7 @@
     text-decoration: none;
     color: #607244; /* Adjust the color as needed */
   }
+
   
   .smooth-underline::before {
     content: "";
@@ -58,7 +59,8 @@
   .smooth-bg {
     position: relative;
     overflow: hidden;
-    color: #000; /* Adjust the initial text color as needed */
+    color: #000;
+    z-index: 10;
   }
   
   .smooth-bg::before {
@@ -69,12 +71,17 @@
     top: 0;
     left: -100%;
     background: #607244;
-    transition: left 0.5s/* Adjust the duration as needed */
+    transition: left 1s
     
   }
   
   .smooth-bg:hover::before {
     left: 0;
+    color: white;
+  }
+
+  .smooth-bg-text{
+    @apply z-20 text-olive-600 hover:text-white hover:bg-transparent p-0
   }
 
   .title-size{

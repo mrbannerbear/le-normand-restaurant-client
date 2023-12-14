@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
+import { ScrollRestoration } from "react-router-dom";
 
 const Menu = () => {
   const handleOpen1 = () => {
@@ -108,6 +109,7 @@ const Menu = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+      <ScrollRestoration></ScrollRestoration>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import {  createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/mainComps/MainLayout";
 import Error from "../components/mainComps/Error";
 import Home from "../components/home/Home";
@@ -12,8 +12,10 @@ import AuthorizedUsers from "../components/admin/adminComps/AuthorizedUsers/Auth
 import Messages from "../components/admin/adminComps/Messages/Messages";
 import EditMenu from "../components/admin/adminComps/EditMenu/EditMenu";
 import Reservation from "../components/reservation/Reservation";
+import PrivateDining from "../components/private-dining/PrivateDining";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
     {
         element: <MainLayout></MainLayout>,
         errorElement: <Error></Error>,
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
         path: "/"
     },
     {
+        element: <PrivateDining></PrivateDining>,
+        path: "/private-dining"
+    },
+    {
         element: <PrivateRoute>
             <Admin></Admin>
         </PrivateRoute>,
@@ -63,6 +69,7 @@ const router = createBrowserRouter([
             },
         ]
     }
-])
+]
+)
 
 export default router

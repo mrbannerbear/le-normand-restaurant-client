@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <>
-    <footer className="bg-olive-50 border-t border-[#607244]">
+    <footer className="bg-olive-50 border-t border-[#607244] mt-12">
     <div className="flex flex-row flex-wrap items-center justify-center px-12
      gap-y-6 gap-x-12  pt-12 mb-4 text-center w-full">
       <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">

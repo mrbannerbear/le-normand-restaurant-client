@@ -6,9 +6,10 @@ const ContactForm = () => {
 
   const handleForm = (d) => {
     d.responded = false;
-    axios.post("  https://server-pearl-iota.vercel.app/messages", d)
-    .then(res => console.log(res.data))
-    .catch(err => console.log(err))
+    axios
+      .post("  https://server-pearl-iota.vercel.app/messages", d)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -108,14 +109,13 @@ const ContactForm = () => {
         </div>
 
         <p className="flex justify-end">
-          <input
-            className="border-[1.5px] hover:text-white
-               border-[#607244] p-2 smooth-bg smooth-color"
-            type="submit"
-            value="Send"
-          />
+          <button
+                 className="border-[1.5px]
+                 border-[#607244] smooth-bg z-10 smooth-color w-max h-max"
+          >
+            <span className="">Send</span>
+          </button>
         </p>
-        
       </form>
     </>
   );
