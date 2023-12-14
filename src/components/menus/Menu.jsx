@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MenuBanner from "./menuComps/menuBanner";
+import MenuBanner from "./menuComps/MenuBanner";
 import ALaCarte from "./menuComps/ALaCarte";
 import { IoMdArrowUp } from "react-icons/io";
 import TastingMenu from "./menuComps/TastingMenu";
@@ -89,20 +89,23 @@ const Menu = () => {
           className="mySwiper w-1/2 h-[450px] mx-auto"
         >
           <SwiperSlide>
-            <img className="h-full w-full"
+            <img
+              className="h-full w-full"
               src="https://images.unsplash.com/photo-1517274885739-760f0910eefc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </SwiperSlide>
 
           <SwiperSlide>
-            <img className="h-full w-full"
+            <img
+              className="h-full w-full"
               src="https://images.unsplash.com/photo-1616669989627-0cea7f32be2c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
           </SwiperSlide>
           <SwiperSlide>
-            <img className="h-full w-full"
+            <img
+              className="h-full w-full"
               src="https://images.unsplash.com/photo-1532270441355-095a26af8a99?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt=""
             />
