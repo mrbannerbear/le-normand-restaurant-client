@@ -1,24 +1,43 @@
 import axios from "axios";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
-  const { register, handleSubmit } = useForm();
+  // const { register, handleSubmit } = useForm();
 
-  const handleForm = (d) => {
-    d.responded = false;
-    axios
-      .post("  https://server-pearl-iota.vercel.app/messages", d)
-      .then((res) => console.log(res.data))
+  const handleForm = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+    const date = new Date();
+    // console.log(d)
+    emailjs
+      .sendForm(
+        "service_8ho2ydn",
+        "template_w9ctozb",
+        e.target,
+        "6dKinTyLyywbB1_i3"
+      )
+      .then(() => {
+        axios
+          .post("  https://server-pearl-iota.vercel.app/messages", {
+            email,
+            message,
+            date,
+          })
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err));
+      })
       .catch((err) => console.log(err));
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(handleForm)}>
+      <form onSubmit={handleForm}>
         <div className="flex gap-3">
           <div className="relative z-0 w-full mb-6 group">
             <input
-              {...register("lastName")}
+              // {...register("lastName")}
               type="text"
               name="lastName"
               id="lastName"
@@ -36,7 +55,7 @@ const ContactForm = () => {
 
           <div className="relative z-0 w-full mb-6 group">
             <input
-              {...register("firstName")}
+              // {...register("firstName")}
               type="firstName"
               name="firstName"
               id="firstName"
@@ -56,7 +75,7 @@ const ContactForm = () => {
         <div className="flex gap-3">
           <div className="relative z-0 w-full mb-6 group">
             <input
-              {...register("email")}
+              // {...register("email")}
               type="email"
               name="email"
               id="email"
@@ -74,7 +93,7 @@ const ContactForm = () => {
 
           <div className="relative z-0 w-full mb-6 group">
             <input
-              {...register("phone")}
+              // {...register("phone")}
               type="tel"
               name="phone"
               id="phone"
@@ -93,7 +112,7 @@ const ContactForm = () => {
 
         <div className="relative z-0 w-full mb-6 group">
           <textarea
-            {...register("message")}
+            // {...register("message")}
             name="message"
             id="message"
             className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
@@ -110,10 +129,11 @@ const ContactForm = () => {
 
         <p className="flex justify-end">
           <button
-                 className="border-[1.5px]
-                 border-[#607244] smooth-bg z-10 smooth-color w-max h-max"
+            className="smooth-bg px-4 py-1 hover:text-white"
           >
-            <span className="">Send</span>
+            <span className="z-20">
+              Send
+            </span>
           </button>
         </p>
       </form>

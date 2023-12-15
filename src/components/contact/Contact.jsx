@@ -25,15 +25,14 @@ const Contact = () => {
           preferred and long trousers are required for gentlemen. Appropriate
           footwear is required.
           <h2 className="font-semibold text-xl my-2">PRIVATE DINING </h2>
-          Please contact Luize Mikelsone on +44 (0)20 7319 7384 or
-          luize.mikelsone@lenormand-ctg.com or by visiting the 
+          Please contact on +880 134 125 1395 or +880 127 256 9862. Visit the 
           <NavLink className="mx-1 underline" to="/private-dining">Private Dining</NavLink> 
-          section of the website.
+          section of the website for more details.
           <h2 className="font-semibold text-xl my-2">PRESS</h2>
-          For any press or media enquiries, please contact: Anais Malet Email:
-          anais.malet@lenormand-ctg.com
+          For any press or media enquiries, please contact: Raian Hasan <br />
+           Email: hasan.raian@lenormand-ctg.com
           <h2 className="font-semibold text-xl my-2">CAREERS </h2>
-          Please visit DucassecParis Careers website or submit your application
+          Please submit your application
           to recruitment@lenormand-ctg.com
         </div>
 

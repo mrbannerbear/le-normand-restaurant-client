@@ -50,10 +50,9 @@ const Navbar = () => {
           ))}
           <NavLink to="/reservation">
             <li
-              className="border-[1.5px]
-           border-[#607244] smooth-bg z-10 smooth-color w-max h-max"
+              className=" smooth-bg"
             >
-              <li className="hover:text-white hover:bg-transparent">Book a Reservation</li>
+              <span className="hover:text-white hover:bg-transparent">Book a Reservation</span>
             </li>
           </NavLink>
         </ul>

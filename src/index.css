@@ -59,8 +59,8 @@
   .smooth-bg {
     position: relative;
     overflow: hidden;
-    color: #000;
     z-index: 10;
+    @apply border-[1.5px] border-[#607244] cursor-pointer
   }
   
   .smooth-bg::before {
@@ -71,13 +71,14 @@
     top: 0;
     left: -100%;
     background: #607244;
-    transition: left 1s
-    
+    transition: left 1s;
+    z-index: 1; /* Set a z-index for the background layer */
   }
   
   .smooth-bg:hover::before {
     left: 0;
     color: white;
+    z-index: -1; /* Move the background layer below other content */
   }
 
   .smooth-bg-text{
