@@ -1,4 +1,3 @@
-import ReCAPTCHA from "react-google-recaptcha";
 import ContactForm from "./ContactComps.jsx/ContactForm";
 import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";

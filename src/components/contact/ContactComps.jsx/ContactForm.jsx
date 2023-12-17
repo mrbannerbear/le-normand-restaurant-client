@@ -1,4 +1,3 @@
-import axios from "axios";
 // import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
@@ -7,10 +6,6 @@ const ContactForm = () => {
 
   const handleForm = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const message = e.target.message.value;
-    const date = new Date();
-    // console.log(d)
     emailjs
       .sendForm(
         "service_8ho2ydn",
@@ -18,16 +13,7 @@ const ContactForm = () => {
         e.target,
         "6dKinTyLyywbB1_i3"
       )
-      .then(() => {
-        axios
-          .post("  https://server-pearl-iota.vercel.app/messages", {
-            email,
-            message,
-            date,
-          })
-          .then((res) => console.log(res.data))
-          .catch((err) => console.log(err));
-      })
+      .then()
       .catch((err) => console.log(err));
   };
 

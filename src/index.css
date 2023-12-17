@@ -64,7 +64,7 @@
   }
   
   .smooth-bg::before {
-    content: "";
+    content: ""; /* Used to create content within ::before or ::after property. Here, as we don't require content, it's set to "" */
     position: absolute;
     width: 100%;
     height: 100%;
