@@ -15,7 +15,7 @@ const CheckoutForm = () => {
     const fetchData = async () => {
       try {
         const response = await AxiosSecure().post("/payment-intent", {
-          price: 200,J
+          price: 200,
         });
         setClientSecret(response.data?.client_secret);
       } catch (error) {
