@@ -13,9 +13,10 @@ const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState(null);
   const [transactionID, setTransactionID] = useState(null);
-  const [booked, setBooked] = useState(0);
+  // const [booked, setBooked] = useState(0);
   const [people, setPeople] = useState(0);
   const [date, setDate] = useState("");
+  const [service, setService] = useState("Lunch");
   // const [paymentVisibility, setPaymentVisibility] = useState(false)
 
   useEffect(() => {
@@ -41,18 +42,23 @@ const CheckoutForm = () => {
   const handleAvailability = (e) => {
     e.preventDefault();
     // console.log(booked)
-    const people = +e.target.people.value;
-    setPeople(people + booked);
-    console.log(people);
+    const peopleNew = +e.target.people.value;
+    // setPeople(people + booked);
+    // console.log(people);
     const service = e.target.service.value;
-    const date = e.target.date.value;
+    const date = e.target.date.value.toString();
+    // console.log(peopleNew)
     axios
       .get(
         `https://server-pearl-iota.vercel.app/reservations?date=${date}&&${service}`
       )
       .then((data) => {
-        setBooked(data.data.length);
+        const bookedPeople = data.data.map(each => each?.people).reduce((prev, curr) => prev + curr, 0) 
+        console.log(bookedPeople)
+        setPeople(bookedPeople + peopleNew);
         setDate(date);
+        setService(service)
+        console.log(people)
       })
       .catch((err) => console.log(err));
   };
@@ -111,6 +117,7 @@ const CheckoutForm = () => {
         email: email,
         phone: phone,
         people: people,
+        service: service,
         date: date,
       };
       axios
@@ -125,7 +132,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12">
-   {!people &&  <form
+   {!people ?  <form
         className="w-96 mx-auto p-8 bg-olive-50-transparent -mt-12"
         onSubmit={handleAvailability}
       >
@@ -186,13 +193,13 @@ const CheckoutForm = () => {
             Check Availability
           </button>
         </div>
-      </form>}
-
-      {(people == true && 40 >= booked + people) && (
+      </form>
+      :
+      (
         <form
           className="w-full max-w-lg mx-auto p-8"
           onSubmit={handleForm}
-          data-aos="fade-in"
+          // data-aos="fade-in"
         >
           <div className="bg-olive-50-transparent shadow-lg p-6 relative">
             <h2 className="text-lg font-medium mb-6 text-olive-600">
@@ -326,4 +333,6 @@ const CheckoutForm = () => {
   );
 };
 
-export default CheckoutForm;
+
+
+export default CheckoutForm

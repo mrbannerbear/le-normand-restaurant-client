@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { ScrollRestoration } from "react-router-dom";
 
 const About = () => {
     return (
@@ -10,7 +11,7 @@ const About = () => {
             </Helmet>
 
         
-            
+            <ScrollRestoration></ScrollRestoration>
         </div>
     );
 };

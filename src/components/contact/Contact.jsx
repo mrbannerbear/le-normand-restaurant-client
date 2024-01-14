@@ -1,6 +1,6 @@
 import ContactForm from "./ContactComps.jsx/ContactForm";
 import { Helmet } from "react-helmet-async";
-import { NavLink } from "react-router-dom";
+import { NavLink, ScrollRestoration } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -40,6 +40,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    <ScrollRestoration></ScrollRestoration>
     </>
   );
 };
