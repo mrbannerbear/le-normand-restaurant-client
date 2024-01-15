@@ -132,12 +132,15 @@ const CheckoutForm = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12">
-   {!people ?  <form
+   {!people ||  people > 40 
+   ? 
+ ( <form
         className="w-96 mx-auto p-8 bg-olive-50-transparent -mt-12"
         onSubmit={handleAvailability}
       >
         <h2>Availability</h2>
-
+        {/* <h3 className="text-center text-xs py-1">{<>Sorry, all seats are reserved. Please select a different date.</>}</h3> */}
+        <h3 className="text-center text-xs py-1">{people > 40 && <>Sorry, all seats are reserved. Please select a different date.</>}</h3>
         <div className="flex  gap-1">
           <div className="mb-1">
             <label htmlFor="people" className="text-gray-500 text-base">
@@ -193,7 +196,7 @@ const CheckoutForm = () => {
             Check Availability
           </button>
         </div>
-      </form>
+      </form>)
       :
       (
         <form
