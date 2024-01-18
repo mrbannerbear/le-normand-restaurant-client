@@ -13,7 +13,8 @@ const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState(null);
   const [transactionID, setTransactionID] = useState(null);
-  // const [booked, setBooked] = useState(0);
+  const [reservedBookings, setReservedBookings] = useState([]);
+  const [showReservedMenu, setShowReservedMenu] = useState(false)
   const [people, setPeople] = useState(0);
   const [date, setDate] = useState("");
   const [service, setService] = useState("Lunch");
@@ -53,12 +54,14 @@ const CheckoutForm = () => {
         `https://server-pearl-iota.vercel.app/reservations?date=${date}&&${service}`
       )
       .then((data) => {
-        const bookedPeople = data.data.map(each => each?.people).reduce((prev, curr) => prev + curr, 0) 
-        console.log(bookedPeople)
+        const bookedPeople = data.data
+          .map((each) => each?.people)
+          .reduce((prev, curr) => prev + curr, 0);
+        console.log(bookedPeople);
         setPeople(bookedPeople + peopleNew);
         setDate(date);
-        setService(service)
-        console.log(people)
+        setService(service);
+        console.log(people);
       })
       .catch((err) => console.log(err));
   };
@@ -130,75 +133,91 @@ const CheckoutForm = () => {
     }
   };
 
+  const handleReservationStatus = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    axios
+      .get(`https://server-pearl-iota.vercel.app/reservations?email=${email}`)
+      .then((res) => {
+        console.log(res.data);
+        setReservedBookings(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12">
-   {!people ||  people > 40 
-   ? 
- ( <form
-        className="w-96 mx-auto p-8 bg-olive-50-transparent -mt-12"
-        onSubmit={handleAvailability}
-      >
-        <h2>Availability</h2>
-        {/* <h3 className="text-center text-xs py-1">{<>Sorry, all seats are reserved. Please select a different date.</>}</h3> */}
-        <h3 className="text-center text-xs py-1">{people > 40 && <>Sorry, all seats are reserved. Please select a different date.</>}</h3>
-        <div className="flex  gap-1">
-          <div className="mb-1">
-            <label htmlFor="people" className="text-gray-500 text-base">
-              Reservation for:
-            </label>
-            <select
-              name="people"
-              id=""
-              className="ml-1 bg-transparent outline-none"
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
-          </div>
-
-          <div className="flex flex-col gap-1">
+      {!people || people > 40 ? (
+        <form
+          className="w-96 mx-auto p-8 bg-olive-50-transparent -mt-12"
+          onSubmit={handleAvailability}
+        >
+          <h2>Availability</h2>
+          {/* <h3 className="text-center text-xs py-1">{<>Sorry, all seats are reserved. Please select a different date.</>}</h3> */}
+          <h3 className="text-center text-xs py-1">
+            {people > 40 && (
+              <>
+                Sorry, all seats are reserved. Please select a different date.
+              </>
+            )}
+          </h3>
+          <div className="flex  gap-1">
             <div className="mb-1">
+              <label htmlFor="people" className="text-gray-500 text-base">
+                Reservation for:
+              </label>
               <select
-                name="service"
-                id="service"
+                name="people"
+                id=""
                 className="ml-1 bg-transparent outline-none"
               >
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </div>
+
+            <div className="flex flex-col gap-1">
+              <div className="mb-1">
+                <select
+                  name="service"
+                  id="service"
+                  className="ml-1 bg-transparent outline-none"
+                >
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="relative z-0 w-full mb-6 group mt-4">
-          <input
-            type="date"
-            name="date"
-            id="date"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="date"
-            className="peer-focus:font-medium absolute  text-gray-500 
-              dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 
-              top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Please choose a date
-          </label>
-        </div>
+          <div className="relative z-0 w-full mb-6 group mt-4">
+            <input
+              type="date"
+              name="date"
+              id="date"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="date"
+              className="peer-focus:font-medium absolute  text-gray-500 
+        dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 
+        top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-olive-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Please choose a date
+            </label>
+          </div>
 
-        <div className="w-full">
-          <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none mt-4">
-            Check Availability
-          </button>
-        </div>
-      </form>)
-      :
-      (
+          <div className="w-full">
+            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none mt-4">
+              Check Availability
+            </button>
+          </div>
+        </form>
+      ) : (
         <form
           className="w-full max-w-lg mx-auto p-8"
           onSubmit={handleForm}
@@ -330,12 +349,41 @@ const CheckoutForm = () => {
           </div>
         </form>
       )}
-   
-   <ScrollRestoration></ScrollRestoration>
+
+   {!showReservedMenu && <div className="py-4">
+        <button className="p-2 bg-olive-50-transparent" onClick={() => setShowReservedMenu(true)}>
+          <span className="smooth-underline">Check Your Reservation</span>
+        </button>
+      </div>}
+
+      {showReservedMenu && <div data-aos="fade-in" className="my-6">
+        <form
+          className="w-96 mx-auto p-8 bg-olive-50-transparent"
+          onSubmit={handleReservationStatus}
+        >
+          <h2>Please enter your email address</h2>
+
+          <div className="relative z-0 w-full mb-6 group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b border-[#607244] appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#607244] peer"
+              placeholder=" "
+              required
+            />
+          </div>
+
+          <div className="w-full">
+            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none">
+              Check Reservation
+            </button>
+          </div>
+        </form>
+      </div>}
+      <ScrollRestoration></ScrollRestoration>
     </div>
   );
 };
 
-
-
-export default CheckoutForm
+export default CheckoutForm;
