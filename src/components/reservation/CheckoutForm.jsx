@@ -6,6 +6,7 @@ import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ScrollRestoration } from "react-router-dom";
+import CheckReservation from "./CheckReservation";
 
 AOS.init();
 
@@ -16,6 +17,8 @@ const CheckoutForm = () => {
   const [reservedBookings, setReservedBookings] = useState([]);
   const [showReservedMenu, setShowReservedMenu] = useState(false)
   const [people, setPeople] = useState(0);
+  const [newPeople, setNewPeople] = useState(0);
+  const [showCheckReservation, setShowCheckReservation] = useState(false);
   const [date, setDate] = useState("");
   const [service, setService] = useState("Lunch");
   // const [paymentVisibility, setPaymentVisibility] = useState(false)
@@ -59,6 +62,7 @@ const CheckoutForm = () => {
           .reduce((prev, curr) => prev + curr, 0);
         console.log(bookedPeople);
         setPeople(bookedPeople + peopleNew);
+        setNewPeople(peopleNew)
         setDate(date);
         setService(service);
         console.log(people);
@@ -119,7 +123,7 @@ const CheckoutForm = () => {
         name: `${title} ${firstName} ${lastName}`,
         email: email,
         phone: phone,
-        people: people,
+        people: newPeople,
         service: service,
         date: date,
       };
@@ -356,7 +360,7 @@ const CheckoutForm = () => {
         </button>
       </div>}
 
-      {showReservedMenu && <div data-aos="fade-in" className="my-6">
+      {showReservedMenu && !showCheckReservation && <div data-aos="fade-in" className="my-6">
         <form
           className="w-96 mx-auto p-8 bg-olive-50-transparent"
           onSubmit={handleReservationStatus}
@@ -374,12 +378,16 @@ const CheckoutForm = () => {
             />
           </div>
 
-          <div className="w-full">
-            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none">
+         { <div className="w-full">
+            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none" onClick={() => setShowCheckReservation(true)}>
               Check Reservation
             </button>
+          </div>}
+
+          <div>
           </div>
         </form>
+        {showCheckReservation && <CheckReservation reservedBookings={reservedBookings}></CheckReservation>}
       </div>}
       <ScrollRestoration></ScrollRestoration>
     </div>
