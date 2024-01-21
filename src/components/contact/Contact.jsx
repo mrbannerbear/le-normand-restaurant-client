@@ -12,7 +12,7 @@ const Contact = () => {
       <h1 className="text-center title-size mb-12">Contact Us</h1>
       <div className="flex flex-col-reverse md:grid md:grid-cols-3">
         <div className="w-full">
-          <p>53 Park Lane London W1K 1QA +88 (0) 2457 0956 12</p>
+          <p>13, Bhatiyari, Chittagong +880 182 323 4723</p>
           <p>lenormandreservations@lenormand-ctg.com</p>
           <h2 className="font-semibold text-xl my-2">OPENING HOURS</h2>
           Opening hours: Tuesday to Saturday 18:00 to 21:30 Reservations opening
