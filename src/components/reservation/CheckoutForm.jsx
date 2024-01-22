@@ -145,6 +145,7 @@ const CheckoutForm = () => {
       .then((res) => {
         console.log(res.data);
         setReservedBookings(res.data);
+        setShowCheckReservation(true)
       })
       .catch((err) => console.log(err));
   };
@@ -378,17 +379,17 @@ const CheckoutForm = () => {
             />
           </div>
 
-         { <div className="w-full">
-            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none" onClick={() => setShowCheckReservation(true)}>
+          <div className="w-full">
+            <button className="w-full bg-olive-600 text-white font-medium py-3  focus:outline-none">
               Check Reservation
             </button>
-          </div>}
+          </div>
 
           <div>
           </div>
         </form>
-        {showCheckReservation && <CheckReservation reservedBookings={reservedBookings}></CheckReservation>}
       </div>}
+      {showCheckReservation && <CheckReservation reservedBookings={reservedBookings}></CheckReservation>}
       <ScrollRestoration></ScrollRestoration>
     </div>
   );
