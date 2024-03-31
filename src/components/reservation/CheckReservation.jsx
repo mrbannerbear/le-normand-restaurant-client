@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const CheckReservation = ({reservedBookings}) => {
-    console.log(reservedBookings)
+
     return (
         <div className="my-6 w-96 mx-auto p-8 bg-olive-50-transparent text-center">
             <h2 className="text-center">{reservedBookings[0]?.name}</h2>
