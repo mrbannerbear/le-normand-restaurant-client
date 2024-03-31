@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const MainSectionHero = ({ data }) => {
   const { img, title, p1, p2, direction, path } = data;
   return (
-    <div className="hero min-h-[70vh]">
+    <div className="hero min-h-[25vh] lg:min-h-[70vh]">
       <div
         className={`hero-content flex lg:gap-10`}
         style={

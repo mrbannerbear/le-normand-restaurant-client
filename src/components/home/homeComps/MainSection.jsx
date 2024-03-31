@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import MainSectionHero from "../../custom/MainSectionHero";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+// import { NavLink } from "react-router-dom";
 
 AOS.init({
   offset: 10, // offset (in px) from the original trigger point
@@ -40,11 +41,10 @@ const MainSection = () => {
       id: 3,
       img: "https://images.unsplash.com/photo-1488992783499-418eb1f62d08?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Our Story",
-      p1: "Learn About",
-      p2: "& What Inspires Us",
+      p2: "How William LeNormand's travels brought exotic ingredients to a refined cuisine.",
       direction: "column-reverse",
       path: "/about",
-    }
+    },
   ];
 
   return (
@@ -58,26 +58,48 @@ const MainSection = () => {
           <MainSectionHero key={each.id} data={each}></MainSectionHero>
         ))}
 
-          <div className="my-12 text-center min-h-[70vh]">
-              <h2 className="title-size font-semibold italic">Book a Table</h2>
-          </div>
+        <div className="my-12 lg:my-16 text-center lg:min-h-[70vh]">
+          <h2 className="title-size font-semibold italic my-4">Book a Table</h2>
+          <div className="grid grid-cols-2 p-4 lg:w-1/2 mx-auto">
+            <div className="border-2 text-right">Hello</div>
 
-        <MainSectionHero data={
-             {
-              id: 5,
-              img: `https://images.unsplash.com/photo-1604328471151-b52226907017?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
-              title: "Follow us On our Socials",
-              p1: "Keep in Touch With Us",
-              p2: (
-                <div className="text-4xl flex gap-5">
-                  <FaFacebook />
-                  <FaInstagram />
-                  <FaXTwitter />
-                </div>
-              ),
-              direction: `row`,
-            }
-        }/>
+            <div>
+              <img
+                className="mx-auto h-96"
+                src="https://images.unsplash.com/photo-1602956033956-003e7180d339?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </div>
+
+       
+            <div>
+              {" "}
+              <img
+                className="mx-auto h-96"
+                src="https://images.unsplash.com/photo-1572812643511-0ff6acaa8817?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </div>
+            <div>Hello</div>
+          </div>
+        </div>
+
+        <MainSectionHero
+          data={{
+            id: 5,
+            img: `https://images.unsplash.com/photo-1604328471151-b52226907017?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
+            title: "Follow us On our Socials",
+            p1: "Keep in Touch With Us",
+            p2: (
+              <div className="text-4xl flex gap-5">
+                <FaFacebook />
+                <FaInstagram />
+                <FaXTwitter />
+              </div>
+            ),
+            direction: `row`,
+          }}
+        />
       </section>
     </div>
   );

@@ -79,14 +79,14 @@ const Menu = () => {
         </div>
       </div>
 
-      <div>
+      <div className="px-3">
         <Swiper
           pagination={{
             type: "custom",
           }}
           navigation={true}
           modules={[Pagination, Navigation]}
-          className="mySwiper w-1/2 h-[450px] mx-auto"
+          className="mySwiper md:w-1/2 h-[300px] md:h-[450px] mx-auto"
         >
           <SwiperSlide>
             <img

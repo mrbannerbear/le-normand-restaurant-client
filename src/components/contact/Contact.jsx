@@ -35,7 +35,7 @@ const Contact = () => {
           to recruitment@lenormand-ctg.com
         </div>
 
-        <div className="flex flex-col gap-3 col-span-2 md:w-3/4 mx-auto">
+        <div className="flex flex-col gap-3 col-span-2 md:w-3/4 mx-auto mb-16 md:mb-0">
           <ContactForm></ContactForm>
         </div>
       </div>
