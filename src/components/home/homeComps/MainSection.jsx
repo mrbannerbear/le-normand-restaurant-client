@@ -74,7 +74,7 @@ const MainSection = () => {
 
             <div>
               <img
-                className="mx-auto h-80 md:h-96"
+                className="mr-auto h-80 md:h-96"
                 src="https://images.unsplash.com/photo-1602956033956-003e7180d339?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
