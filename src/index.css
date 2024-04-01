@@ -34,27 +34,30 @@
     @apply bg-[#ebf1e0]/80
 }
 
-.smooth-underline {
-    position: relative;
-    text-decoration: none;
-    color: #607244; /* Adjust the color as needed */
-  }
 
-  
-  .smooth-underline::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 1px; /* Adjust the thickness as needed */
-    bottom: 0;
-    left: 0;
-    background-color: #607244; /* Adjust the color as needed */
-    transition: width 0.5s; /* Adjust the duration as needed */
-  }
-  
-  .smooth-underline:hover::before {
-    width: 100%;
-  }
+
+.smooth-underline {
+  position: relative;
+  text-decoration: none;
+  color: #607244; /* Adjust the color as needed */
+}
+
+
+
+.smooth-underline::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px; /* Adjust the thickness as needed */
+  bottom: 0;
+  left: 0;
+  background-color: #607244; /* Adjust the color as needed */
+  transition: width 0.5s; /* Adjust the duration as needed */
+}
+
+.smooth-underline:hover::before {
+  width: 100%;
+}
 
   .smooth-bg {
     position: relative;

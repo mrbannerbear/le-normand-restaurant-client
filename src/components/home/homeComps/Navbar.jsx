@@ -57,6 +57,11 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
+
+      <div className="md:hidden">
+        
+      </div>
+
     </div>
   );
 };

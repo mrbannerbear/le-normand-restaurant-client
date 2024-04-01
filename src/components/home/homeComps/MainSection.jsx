@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import MainSectionHero from "../../custom/MainSectionHero";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 
 AOS.init({
@@ -60,27 +61,43 @@ const MainSection = () => {
 
         <div className="my-12 lg:my-16 text-center lg:min-h-[70vh]">
           <h2 className="title-size font-semibold italic my-4">Book a Table</h2>
-          <div className="grid grid-cols-2 p-4 lg:w-1/2 mx-auto">
-            <div className="border-2 text-right">Hello</div>
+          <div className="grid grid-cols-2 p-4 lg:w-2/3 mx-auto gap-5 md:gap-0">
+
+          <div className="flex items-center">
+                <div className="text-right">
+                  <h2 className="font-semibold text-3xl">Peak Fine Dining</h2>
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
+                  <p className="my-2">Everything in quintessential fine dining and more.</p>
+                  <button className="smooth-underline"><NavLink to={`/reservation`}>Check Reservations</NavLink></button>
+                </div>
+            </div>
 
             <div>
               <img
-                className="mx-auto h-96"
+                className="mx-auto h-80 md:h-96"
                 src="https://images.unsplash.com/photo-1602956033956-003e7180d339?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
             </div>
 
        
-            <div>
-              {" "}
+            <div className="-mt-12"> 
+           
               <img
-                className="mx-auto h-96"
+                className="mx-auto h-80 md:h-96"
                 src="https://images.unsplash.com/photo-1572812643511-0ff6acaa8817?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
             </div>
-            <div>Hello</div>
+
+            <div className="flex items-center">
+                <div className="text-left">
+                  <h2 className="font-semibold text-3xl">An Experience of a Lifetime</h2>
+                  <p className="my-2">Enjoy Corte Preziosa, the ultimate fine dining experience.</p>
+                  <button className="smooth-underline"><NavLink to={`/private-dining`}>Contact For Details</NavLink></button>
+                </div>
+            </div>
+
           </div>
         </div>
 
